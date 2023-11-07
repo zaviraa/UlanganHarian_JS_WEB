@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form Login</title>
+</head>
+
+<body>
+    <h2>Form Login</h2>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+
+        <button type="button" id="loginButton">Login</button>
+    </form>
+
+    <script>
+        document.getElementById("loginButton").addEventListener("click", function() {
+            var usernameInput = document.getElementById("username").value;
+            var passwordInput = document.getElementById("password").value;
+
+            if (usernameInput === "stematel" && passwordInput === "2023") {
+                alert("Selamat Anda berhasil login");
+            } else {
+                alert("Maaf Anda gagal login");
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Kalkulator Aritmatika</title>
+</head>
+
+<body>
+    <h2>Kalkulator Aritmatika</h2>
+    <form id="calculatorForm">
+        <label for="number1">Angka 1:</label>
+        <input type="number" id="number1" name="number1" step="0.01"><br><br>
+
+        <label for="number2">Angka 2:</label>
+        <input type="number" id="number2" name="number2" step="0.01"><br><br>
+
+        <button type="button" id="addButton">Pertambahan</button>
+        <button type="button" id="subtractButton">Pengurangan</button>
+        <button type="button" id="multiplyButton">Perkalian</button>
+        <button type="button" id="divideButton">Pembagian</button>
+        <button type="button" id="powerButton">Pemangkatan</button>
+        <button type="button" id="modulusButton">Modulus</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        document.getElementById("addButton").addEventListener("click", function() {
+            calculate("Pertambahan", "+");
+        });
+
+        document.getElementById("subtractButton").addEventListener("click", function() {
+            calculate("Pengurangan", "-");
+        });
+
+        document.getElementById("multiplyButton").addEventListener("click", function() {
+            calculate("Perkalian", "*");
+        });
+
+        document.getElementById("divideButton").addEventListener("click", function() {
+            calculate("Pembagian", "/");
+        });
+
+        document.getElementById("powerButton").addEventListener("click", function() {
+            calculate("Pemangkatan", "^");
+        });
+
+        document.getElementById("modulusButton").addEventListener("click", function() {
+            calculate("Modulus", "%");
+        });
+
+        function calculate(operation, operator) {
+            var num1 = parseFloat(document.getElementById("number1").value);
+            var num2 = parseFloat(document.getElementById("number2").value);
+
+            if (!isNaN(num1) && !isNaN(num2)) {
+                var result;
+                switch (operator) {
+                    case "+":
+                        result = num1 + num2;
+                        break;
+                    case "-":
+                        result = num1 - num2;
+                        break;
+                    case "*":
+                        result = num1 * num2;
+                        break;
+                    case "/":
+                        result = num1 / num2;
+                        break;
+                    case "^":
+                        result = Math.pow(num1, num2);
+                        break;
+                    case "%":
+                        result = num1 % num2;
+                        break;
+                }
+                document.getElementById("result").textContent = "Hasil " + operation + " adalah: " + result;
+            } else {
+                alert("Masukkan angka yang valid untuk kedua bilangan.");
+            }
+        }
+    </script>
+</body>
+
+</html>

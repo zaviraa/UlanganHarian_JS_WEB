@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cek Bilangan Positif Dan Bilangan Negatif</title>
+</head>
+
+<body>
+    <h2>Cek Bilangan Positif Dan Bilangan Negatif</h2>
+    <form id="checkNumberForm">
+        <label for="number">Masukkan angka:</label>
+        <input type="number" id="number" name="number" step="any"><br><br>
+
+        <button type="button" id="checkButton">Cek</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        document.getElementById("checkButton").addEventListener("click", function() {
+            var number = parseFloat(document.getElementById("number").value);
+
+            if (!isNaN(number)) {
+                if (number > 0) {
+                    document.getElementById("result").textContent = number + " adalah bilangan positif.";
+                } else if (number < 0) {
+                    document.getElementById("result").textContent = number + " adalah bilangan negatif.";
+                }
+            } else {
+                alert("Masukkan angka yang valid.");
+            }
+        });
+    </script>
+</body>
+
+</html>
